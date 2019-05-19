@@ -7,7 +7,7 @@ import xml.etree.cElementTree as ET
 
 app = Flask(__name__)
 
-blacklist = ["简裁", "西服", "驾校", "学车"]
+blacklist = ["简裁", "西服", "西装", "驾校", "学车"]
 
 
 @app.route("/")
@@ -44,7 +44,7 @@ def tongqu_rss():
             ET.SubElement(item, "title").text = act["name"]
             ET.SubElement(item, "link").text = "https://tongqu.me/act/" + act["actid"]
             ET.SubElement(item, "description").text = "开始时间：{0}\n地点：{1}".format(act["start_time"], act["location"])
-    # Pring error logs for Azure App Service
+    # Print error logs for Azure App Service
     except Exception:
         with open("D:\home\site\wwwroot\\error.txt", "w") as f:
             f.write(traceback.format_exc())
