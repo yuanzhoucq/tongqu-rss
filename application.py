@@ -28,9 +28,10 @@ def tongqu_rss():
 
         rss = ET.Element("rss", version="2.0")
         channel = ET.SubElement(rss, "channel")
-        ET.SubElement(channel, "title").text = "Tongqu rss"
-        ET.SubElement(channel, "url").text = "Tongqu rss"
-        ET.SubElement(channel, "description").text = "Tongqu rss"
+        ET.SubElement(channel, "title").text = "同去网活动"
+        ET.SubElement(channel, "url").text = "https://tongqu.me/act/type?type=0&status=0&order=act.create_time"
+        ET.SubElement(channel, "description").text = \
+            "【非官方】同去网活动通知。屏蔽垃圾信息关键词：" + ", ".join(blacklist) + "。"
 
         for idx, act in enumerate(acts):
             should_remove = False
@@ -44,6 +45,8 @@ def tongqu_rss():
             ET.SubElement(item, "title").text = act["name"]
             ET.SubElement(item, "link").text = "https://tongqu.me/act/" + act["actid"]
             ET.SubElement(item, "description").text = "开始时间：{0}\n地点：{1}".format(act["start_time"], act["location"])
+            ET.SubElement(item, "guid").text = "https://tongqu.me/act/" + act["actid"]
+
     # Print error logs for Azure App Service
     except Exception:
         with open("D:\home\site\wwwroot\\error.txt", "w") as f:
