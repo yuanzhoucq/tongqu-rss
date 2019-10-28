@@ -7,7 +7,7 @@ import xml.etree.cElementTree as ET
 
 app = Flask(__name__)
 
-blacklist = ["简裁", "西服", "西装", "驾校", "学车"]
+blacklist = ["简裁", "西服", "西装", "驾校", "学车", "驾驶"]
 
 
 @app.route("/")
