@@ -18,7 +18,7 @@ def hello():
 @app.route('/rss')
 def tongqu_rss():
     try:
-        url = "https://tongqu.me/api/act/type?type=0&status=0&order=act.create_time&number=30"
+        url = "https://tongqu.me/api/act/type?type=0&status=0&order=act.create_time&number=50"
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
         context = ssl._create_unverified_context()
         req = urllib.request.Request(url=url, headers=headers)
